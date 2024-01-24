@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+
+    <style>
+        html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #EEF5FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.board {
+    height: 50%;
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin-right: auto;
+    margin-left: 20%;
+}
+
+.cell {
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    font-size: 70px;
+    text-align: center;
+    line-height: 95px;
+    cursor: pointer;
+    user-select: none;
+    padding: 20px;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:nth-child(3n) {
+    border-right: none;
+}
+
+.cell:nth-child(n+7) {
+    border-bottom: none;
+}
+
+.cell.highlight {
+    background-color: #f7b32c;
+}
+
+.control {
+    width: 50%;
+    margin-left: 20%;
+    margin-right: auto;
+
+
+}
+
+.button {
+
+    background-color: #2698cd;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+
+}
+
+.gameStatement{
+    margin-top: auto;
+}
+.disabled{
+    pointer-events: none;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="board">
+      <div class="cell" id="one"></div>
+      <div class="cell" id="two"></div>
+      <div class="cell" id="third"></div>
+      <div class="cell" id="four"></div>
+      <div class="cell" id="five"></div>
+      <div class="cell" id="six"></div>
+      <div class="cell" id="seven"></div>
+      <div class="cell" id="eight"></div>
+      <div class="cell" id="nine"></div>
+    </div>
+    <div class="control">
+      <h1 class="gameStatement"></h1>
+      <br />
+      <button class="button" id="">Start</button>
+    </div>
+  </body>
+  <script>
+let button =document.querySelector(".button");
+
+let gameStatement=document.querySelector(".gameStatement");
+let board=document.querySelector(".board");
+let cell=document.querySelector(".cell");
+console.log(button.innerHTML);
+console.log(board)
+let startflag=true;
+let Turn="X";
+button.addEventListener("click",function(){
+    
+    if(startflag==true){
+     
+    gameStatement.innerHTML=`Player ${Turn}'s Turn`;
+
+    }
+    else{
+        gameStatement.innerHTML=`Player ${Turn}'s Turn`;
+        
+    }
+    
+startflag=!startflag;
+})
+
+board.addEventListener("click" ,function(abc){
+    
+    if(startflag==false){
+    abc.target.innerHTML=Turn
+    }
+    else{
+        abc.target.innerHTML=Turn
+    }
+   
+})
+
+
+
+
+  
+  </script>
+</html>
